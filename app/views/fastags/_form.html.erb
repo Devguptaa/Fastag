@@ -1,0 +1,17 @@
+<%= form_with model: [ @vehicle, @vehicle.fastag.build ] do |form| %>
+    <p>
+      <%= form.label :accountnumber %><br>
+      <%= form.text_field :accountnumber %>
+    </p>
+    <p>
+      <%= form.label :vehiclenumber %><br>
+      <%= form.text_field :vehiclenumber %>
+    </p>
+    <p>
+      <%= form.label :vehicle_id %><br>
+      <%= form.number_field :vehicle_id %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>

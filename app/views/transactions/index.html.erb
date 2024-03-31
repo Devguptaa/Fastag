@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Transactions</h1>
+
+
+
+<div id="transactions">
+  <table class="table table-hover table-info table-bordered border-dark">
+    <thead class="table-dark">
+      <tr>
+        <th>Amount</th>
+        <th>Location</th>
+        <th>Transaction_Id</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    
+  <tbody>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <th><%= transaction.amount %></th>
+      <th><%= transaction.location %></th>
+      <th><%= transaction.fastag_id %></th>
+      <th><%= transaction.created_at %></th>
+    </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New transaction", new_transaction_path %>

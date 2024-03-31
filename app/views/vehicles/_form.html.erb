@@ -1,0 +1,16 @@
+
+<%= form_with model: @vehicle do |form| %>
+  <div>
+    <%= form.label :vehicle_number %><br>
+    <%= form.text_field :vehicle_number %>
+  </div>
+
+  <div>
+    <%= form.label :vehicle_model %><br>
+    <%= form.text_area :vehicle_model %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

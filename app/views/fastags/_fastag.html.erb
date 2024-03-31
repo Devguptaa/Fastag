@@ -1,0 +1,12 @@
+<p>
+  <strong>Account Number:</strong>
+  <%= fastag.accountnumber %>
+</p>
+
+<p>
+  <strong>Vehicle Number:</strong>
+  <%= fastag.vehiclenumber %>
+</p>
+<%= link_to 'Add Transactions' , new_transaction_path(fastag) ,class:"btn btn-primary"%>
+<%= link_to 'Show Transactions' , transactions_path ,class:"btn btn-primary"%>
+
