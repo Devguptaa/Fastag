@@ -1,3 +1,4 @@
+<% if @vehicle.fastag.present? %>
 <p>
   <strong>Account Number:</strong>
   <%= fastag.accountnumber %>
@@ -7,6 +8,17 @@
   <strong>Vehicle Number:</strong>
   <%= fastag.vehiclenumber %>
 </p>
-<%= link_to 'Add Transactions' , new_transaction_path(fastag) ,class:"btn btn-primary"%>
-<%= link_to 'Show Transactions' , transactions_path ,class:"btn btn-primary"%>
+<ul style="list-style: none;">
+<li><%= link_to 'Add Transactions' , new_vehicle_fastag_transaction_path(vehicle_id: @vehicle.id, fastag_id: @vehicle.fastag.id) ,class:"btn btn-primary"%></li>
+<br>
+<li><%= link_to 'Show Transactions' , vehicle_fastag_transaction_path(vehicle_id: @vehicle.id, fastag_id: @vehicle.fastag.id) ,class:"btn btn-primary"%></li>
+<br></ul>
+
+<%else%>  
+  <h2>Add a Fastag:</h2>  
+
+  <%= render 'fastags/form' %>
+<% end %>
+
+
 

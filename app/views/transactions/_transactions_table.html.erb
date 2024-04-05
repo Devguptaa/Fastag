@@ -1,0 +1,23 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Location</th>
+      <th>Vehicle Number</th>
+      <th >Date</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.location %></td>
+        <td><%= transaction.fastag.vehiclenumber %></td>
+        <td><%= transaction.created_at.strftime("%d-%b-%Y") %></td>
+        <td><%= transaction.created_at.strftime("%H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

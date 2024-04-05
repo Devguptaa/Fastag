@@ -1,10 +1,52 @@
 <p style="color: green"><%= notice %></p>
 
+<h1>Transactions</h1>
 
+
+
+<div id="transactions">
+  <table class="table table-hover table-info table-bordered border-dark">
+    <thead class="table-dark">
+      <tr>
+        <th>Amount</th>
+        <th>Location</th>
+        <th>Transaction_Id</th>
+        <th>Time</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    
+  <tbody>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <th><%= transaction.amount %></th>
+      <th><%= transaction.location %></th>
+      <th><%= @fastag.vehiclenumber %></th>
+      <th><%= transaction.created_at.strftime("%H:%M")%></th>
+      <th><%= transaction.created_at.strftime("%d ,%b %Y")%></th>
+    </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New transaction", new_vehicle_fastag_transaction_path ,class:"btn btn-primary"%>
+
+
+
+<button id="filter-date-range-btn" class="btn btn-primary">Filter by Date Range</button>
+
+
+<div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+  <!-- Modal content -->
+</div>
+
+<%= render partial: 'filter_modal' %>
 
 <div>
-  
-  <%= link_to "Back to transactions", transactions_path %>
+  <br>
+  <%= link_to "Back to transactions", vehicle_fastag_transaction_path ,class:"btn btn-primary"%>
+  <br>
+  <%= button_to "Destroy this transaction", vehicle_fastag_transaction_path, method: :delete, data: { confirm: "Are you sure you want to delete this transaction?" } %>
 
-  <%= button_to "Destroy this transaction", @transaction, method: :delete %>
 </div>

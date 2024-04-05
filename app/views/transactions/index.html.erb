@@ -20,12 +20,23 @@
     <tr>
       <th><%= transaction.amount %></th>
       <th><%= transaction.location %></th>
-      <th><%= transaction.fastag_id %></th>
-      <th><%= transaction.created_at %></th>
+      <th><%= @fastag.vehiclenumber %></th>
+      <th><%= transaction.created_at.strftime( "%Y-%m-%d") %></th>
     </tr>
     <%end%>
     </tbody>
   </table>
 </div>
 
-<%= link_to "New transaction", new_transaction_path %>
+<%= link_to "New transaction", new_vehicle_fastag_transaction_path ,class:"btn btn-primary"%>
+
+
+
+<button id="filter-date-range-btn" class="btn btn-primary">Filter by Date Range</button>
+
+
+<div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+  <!-- Modal content -->
+</div>
+
+<%= render partial: 'filter_modal' %>

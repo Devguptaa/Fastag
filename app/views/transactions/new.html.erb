@@ -1,9 +1,9 @@
 <h1>New transaction</h1>
 
-<%= render "form", transaction: @transaction %>
+<%= render "form", transaction: @transaction ,vehicle: @vehicle%>
 
 <br>
 
 <div>
-  <%= link_to "Back to transactions", transactions_path %>
+  <%= link_to "Back to transactions", vehicle_fastag_transactions_path(@fastag) %>
 </div>

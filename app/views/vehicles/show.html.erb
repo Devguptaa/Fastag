@@ -3,13 +3,9 @@
 
 <%= link_to "Edit", edit_vehicle_path(@vehicle) ,class:"btn btn-info" %>
 <%= link_to "Destroy", vehicle_path(@vehicle), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } ,class:"btn btn-danger"%>
-
-<% if @vehicle.fastag.present? %>
-  <h1>Fastag Details</h1>
-  <%= render @vehicle.fastag %>
-<%else%>  
-  <h2>Add a Fastag:</h2>
-
-  <%= render 'fastags/form' %>
-<% end %>
+<%if @vehicle.fastag%>
+<%= render @vehicle.fastag %>
+<%else%>
+<%=link_to 'Add Fastag' , new_vehicle_fastag_path(@vehicle) %>
+<%end%>
 
